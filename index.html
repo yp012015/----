@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+   <link href="css/mui.min.css" rel="stylesheet"/>
+   <title></title>
+    <style type="text/css">
+    	html,body{height: 100%;width: 100%;background: white;}
+    	.background-default{
+    			height: 100%;width: 100%;
+    			background-repeat: no-repeat;
+    			background-size: cover;
+		}
+    	.div-logo{
+    		height: 45px;
+    		width: 35%;
+    		left: 50%;
+    		transform: translateX(-50%);
+    			-webkit-transform: translateX(-50%);
+    		bottom: 4%;
+    		position: fixed;
+    		background-image: url(images/bg_welcome_logo_red.png);
+    		background-size: contain;
+    		background-repeat: no-repeat;
+    		background-position: center;
+    	}	
+    </style>
+    <script src="js/mui.min.js"></script>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+      	$(document).ready(function () {
+      		mui.later(function(){
+	      		$(".background-default").css("background-image","url(images/bg_welcome_default.jpg)");
+	      		$(".div-logo").css("background-image","url(images/bg_welcome_logo_white.png)");
+		      	$(".background-default").animate(
+		      		//动画参数
+		      		{
+				      left:'250px',
+				      height:'+=160px',
+				      width:'+=90px'
+				    },
+				    1500,//动画持续事件
+				    //动画结束后的回调函数
+				    function(){
+				    	mui.openWindow({
+				    		id:"main",
+				    		url:"html/main.html",
+				    		show: {
+								autoShow: false, //页面loaded事件发生后自动显示，默认为true
+								aniShow: 'fade-in',
+								duration: 300
+							},
+							waiting: {
+								title: '正在加载...'
+							}
+				    	})
+			    	}
+			    );
+      		},1000)
+      	});
+    </script>
+</head>
+<body>
+	<div class="background-default">
+		
+	</div>
+	<div class="div-logo">
+		
+	</div>
+</body>
+</html>

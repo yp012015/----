@@ -1,0 +1,60 @@
+{
+	"index.html": {
+		"resources": [
+			"images/bg_welcome_default.jpg",
+			"js/jquery-1.8.3.min.js",
+			"images/bg_welcome_logo_red.png",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"images/bg_welcome_logo_white.png"
+		],
+		"refer": [
+			"html/main.html"
+		]
+	},
+	"html/main.html": {
+		"resources": [
+			"fonts/mui.ttf",
+			"js/main.js",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"html/discover.html",
+			"html/movie.html",
+			"fonts/iconfont.css",
+			"fonts/iconfont.woff"
+		],
+		"refer": [
+			"html/mine.html",
+			"html/discover.html",
+			"html/cinema.html",
+			"html/movie.html"
+		]
+	},
+	"html/mine.html": {
+		"resources": [
+			"js/mui.min.js",
+			"images/4.png",
+			"css/mui.min.css"
+		]
+	},
+	"html/discover.html": {
+		"resources": [
+			"images/3.png"
+		]
+	},
+	"html/cinema.html": {
+		"resources": [
+			"images/2.png"
+		]
+	},
+	"html/movie.html": {
+		"resources": [
+			"images/1.png",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"fonts/mui.ttf",
+			"js/movie.js",
+			"css/movie.css"
+		]
+	}
+}
