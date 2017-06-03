@@ -1,2 +1,16 @@
 .mui-icon-search{color: white;font-weight: 600;}
 #cityName{color: white;font-family: "microsoft yahei";}
+.mui-content{background: white;}
+/*选择城市旁边的下拉箭头*/
+#arrow-down{
+	height: 10px; width: 10px;
+	background-color: inherit;
+	border-bottom: 1px solid white;
+	border-right: 1px solid white;
+	border-top: none;
+	border-left: none;
+	transform: rotate(45deg);
+		-webkit-transform: rotate(45deg);
+}
+/*电影照片*/
+.mui-table-view .movie-img{height: 84px; line-height:1; max-width: 57px;}

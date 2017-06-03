@@ -8,28 +8,36 @@
 		<link href="../css/mui.min.css" rel="stylesheet" />
 		<link href="../css/app.css" rel="stylesheet" />
 		<link href="../css/movie.css" rel="stylesheet" />
-		<style type="text/css">
-			/*html,body{height: 100%;width: 100%;}
-			body{
-				background-image: url(../images/1.png);
-				background-size: contain;
-				background-repeat: no-repeat;
-				background-position: center;
-			}*/
-		</style>
 	</head>
 
 	<body>
 		<script src="../js/mui.min.js"></script>
+		<script src="../js/httpUrl.js"></script>
 		<script src="../js/movie.js"></script>
 		<header class="mui-bar mui-bar-nav">
 			<div class="mui-icon mui-pull-left">
-        		<span id="cityName" style="font-size: 14px;">成都</span>
-        		<img src="../images/arrow_down.png"/>
+	        		<span id="cityName" style="font-size: 14px;">成都</span>
+	        		<input id="arrow-down"/>
+	        		
 			</div>
 		    <h1 class="mui-title">热映电影</h1>
 		    <a class="mui-icon mui-icon-search mui-pull-right"></a>
 		</header>
+		<div class="mui-content">
+		    <ul class="mui-table-view">
+		        <li class="mui-table-view-cell mui-media">
+		            <a href="javascript:;">
+		                <img class="mui-media-object mui-pull-left movie-img" src="http://placehold.it/40x30">
+		                <div class="mui-media-body">
+		                    神奇女侠
+		                    <p class="movie-cat">动作，冒险，奇幻</p>
+		                    <p class="movie-star">盖尔·加朵,克里斯·派恩,罗宾·怀特</p>
+		                    <p class="movie-scm">神力女超人，救世又圈粉</p>
+		                </div>
+		            </a>
+		        </li>
+		    </ul>
+		</div>
 	</body>
 
 </html>
