@@ -29,7 +29,13 @@
     <script src="js/mui.min.js"></script>
     <script src="js/jquery-1.8.3.min.js"></script>
     <script type="text/javascript" charset="utf-8">
-      	mui.init();
+      	mui.init({
+      		//初始化预加载页面
+			preloadPages:[{
+			    id:'video.html',
+			    url:'html/video.html'           
+		  	}]
+      	});
       	$(document).ready(function () {
       		mui.later(function(){
 	      		$(".background-default").css("background-image","url(images/bg_welcome_default.jpg)");
@@ -37,9 +43,9 @@
 		      	$(".background-default").animate(
 		      		//动画参数
 		      		{
-				      left:'250px',
-				      height:'+=160px',
-				      width:'+=90px'
+//				      left:'250px',
+				      height:'+=100px',
+				      width:'+=56px'
 				    },
 				    1500,//动画持续事件
 				    //动画结束后的回调函数
@@ -50,11 +56,22 @@
 				    		show: {
 								autoShow: false, //页面loaded事件发生后自动显示，默认为true
 								aniShow: 'fade-in',
-								duration: 300
+								duration: 100
 							},
-							waiting: {
-								title: '正在加载...'
-							}
+							 waiting:{
+						      	autoShow:true,//自动显示等待框，默认为true
+						      	title:'正在加载...',//等待对话框上显示的提示内容
+						      	/*options:{
+							        width:200,//等待框背景区域宽度，默认根据内容自动计算合适宽度
+							        height:100,//等待框背景区域高度，默认根据内容自动计算合适高度
+									background:'rgba(0,0,0,0)',
+									background:"#fff",							        
+									loading:{
+							        	height:'40px',
+							        	icon:'images/ic_progress_out.png',
+							        }
+						      	}*/
+						    }
 				    	})
 			    	}
 			    );

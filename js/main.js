@@ -1,14 +1,18 @@
+var isExit = false;//标记用户是否想退出应用
 //初始化mui
 mui.init({
 	beforeback:function(){
-		var btnArray = ['否', '是'];
-		mui.confirm('确认退出应用？', '退出应用', btnArray, function(e) {
-			if (e.index == 1) {
-				plus.runtime.quit();
-			}
-		})
+		if(isExit){
+			plus.runtime.quit();
+		} else {
+			isExit = true;
+			mui.toast("再按一次返回键退出应用！");
+			mui.later(function(){
+				isExit = false;  
+			},2000)
+		}
 		return false;
-	}
+	},
 });
 mui.plusReady(function() {
 	//获取主webview
@@ -37,6 +41,7 @@ mui.plusReady(function() {
 		}
 		//开始创建webview
 		var newWebView = plus.webview.create(url, id, {
+			top:'0px',
 			bottom: '50px',
 			popGesture: 'none'
 		});
@@ -46,7 +51,7 @@ mui.plusReady(function() {
 		parentWebView.append(newWebView);
 	}
 	//关闭等待框
-    plus.nativeUI.closeWaiting();
+//  plus.nativeUI.closeWaiting();
     //显示当前页面
     mui.currentWebview.show();
 	//声明默认显示的子webview的id
@@ -55,7 +60,7 @@ mui.plusReady(function() {
 		//mui.alert(this.dataset.id);
 		//如果当前显示的webview和用户点击即将显示的webview为同一个，那么什么也不做，直接跳过
 		var showViewId = this.dataset.id;
-		console.log("showViewId= " + showViewId);
+//		console.log("showViewId= " + showViewId);
 		if(currentViewId === showViewId)
 			return;
 		//隐藏当前正显示的webview

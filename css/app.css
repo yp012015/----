@@ -3,3 +3,5 @@ body{font-family: "microsoft yahei";}
 .mui-bar-nav{background-color: #d43e37;}
 /*头部导航栏字体颜色*/
 .mui-title{color: white;}
+/*返回箭头*/
+.mui-icon-left-nav{color: white;}

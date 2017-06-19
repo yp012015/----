@@ -1,0 +1,58 @@
+/*影院名称*/
+.mui-table-view-cell .mui-media-body{color: black; margin-top: 5px;}
+.showInfo{margin-top: 5px;}
+.address{margin-top: 10px;}
+/*item边距*/
+.mui-table-view .mui-media {padding-top: 10px; padding-left: 10px;}
+/*item分割线*/
+.mui-table-view-cell:after {left: 0;}
+/*item右边距*/
+.mui-table-view-chevron .mui-table-view-cell {padding-right: 35px;}
+/*电影票价*/
+.price{color: #d43e37;margin-left: 5px;}
+.rmb{color: #777777;font-size: 12px;}
+/*影院地址*/
+.address{position: relative; padding-bottom: 7px;}
+/*影院距离*/
+.distance{position: absolute;right: 15px;}
+/*影院地址下面的小按钮*/
+.mui-btn{
+	padding: 2px 4px;line-height: 1;font-size: 12px;
+	margin-right: 3px;
+	border-radius: 1px;
+    border-top-left-radius: 1px; 
+    border-top-right-radius: 1px; 
+    border-bottom-right-radius: 1px; 
+    border-bottom-left-radius: 1px; 
+}
+/*地图定位*/
+#locatebanner{
+	display: block;
+    transform-origin: 0px 0px 0px;
+    opacity: 1;
+    transform: scale(1, 1);
+    position: fixed;
+    z-index: 100;
+    margin: 10px 5px;
+    padding: 5px;
+    font-weight: 300;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 5px;
+    background: rgba(239,239,239,.9);
+    color: #000;
+    font-size: 12px;
+    line-height: 15px;
+}
+ #locatebanner img {
+    width: 15px;
+    height: 12px;
+}
+#locatebanner #refresh {
+    float: right;
+    background-image: url(../images/ic_cinema_locate_refresh.png);
+    background-size: contain;
+    width: 15px;
+    height: 15px;
+}

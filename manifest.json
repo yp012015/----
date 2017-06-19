@@ -202,7 +202,8 @@
 					"images/bg_welcome_logo_white.png"
 				],
 				"refer": [
-					"html/main.html"
+					"html/main.html",
+					"html/video.html"
 				],
 				"priority": 0
 			},
@@ -241,7 +242,14 @@
 			},
 			"html/cinema.html": {
 				"resources": [
-					"images/2.png"
+					"images/2.png",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/cinema.css",
+					"css/app.css",
+					"js/cinema.js",
+					"html/cinema_sub.html"
 				],
 				"refer": [],
 				"priority": 0
@@ -253,7 +261,57 @@
 					"css/mui.min.css",
 					"fonts/mui.ttf",
 					"js/movie.js",
-					"css/movie.css"
+					"css/movie.css",
+					"css/app.css",
+					"js/httpUrl.js",
+					"js/jquery-1.8.3.min.js",
+					"html/movie_sub.html"
+				],
+				"refer": [
+					"html/video.html"
+				],
+				"priority": 0
+			},
+			"html/movie_sub.html": {
+				"resources": [
+					"css/movie_sub.css",
+					"js/movie_sub.js",
+					"js/jquery-1.8.3.min.js",
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"js/httpUrl.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"html/cinema_sub.html": {
+				"resources": [
+					"js/cinema_sub.js",
+					"css/cinema_sub.css",
+					"js/httpUrl.js",
+					"js/jquery-1.8.3.min.js",
+					"js/mui.min.js",
+					"css/app.css",
+					"css/mui.min.css",
+					"images/locate.png",
+					"images/ic_cinema_locate_refresh.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"html/video.html": {
+				"resources": [
+					"images/ic_progress_out.png",
+					"fonts/mui.ttf",
+					"css/app.css",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"js/jquery-1.8.3.min.js",
+					"js/httpUrl.js",
+					"js/video.min.js",
+					"css/video-js.css"
 				],
 				"refer": [],
 				"priority": 0
@@ -265,5 +323,5 @@
 				"css/mui.css"
 			]
 		}
-	}
+	},"fullscreen":false
 }

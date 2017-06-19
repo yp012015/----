@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/app.css" rel="stylesheet" />
+		<link href="../css/video-js.css" rel="stylesheet" />
+		<style>
+			.m{ width: 100%; margin: 0; max-height: 250px;min-height: 200px;height: 200px;}
+			#my-video{width: 100%;height: 100%;}
+			@font-face
+			{
+				font-family: myFirstFont;
+				src: url(../fonts/fangzhenghanzhen.TTF);
+			}
+			p{
+				font-family:myFirstFont;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">标题</h1>
+		</header>
+		<div class="mui-content">
+			<div class="m">
+				<video id="my-video" class="video-js" controls preload="auto"
+				  poster="MY_VIDEO_POSTER.jpg" data-setup="{}">
+					<source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
+					<source src="http://vjs.zencdn.net/v/oceans.webm" type="video/webm">
+					<source src="http://vjs.zencdn.net/v/oceans.ogv" type="video/ogg">
+					<p class="vjs-no-js">
+					  To view this video please enable JavaScript, and consider upgrading to a web browser that
+					  <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+					</p>
+				  </video>
+			</div>
+			<p>测试引用的字体ce shi yin yong de zi ti</p>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/jquery-1.8.3.min.js"></script>
+		<script src="../js/httpUrl.js"></script>
+		<script src="../js/video.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			//添加newId自定义事件监听
+			window.addEventListener('movieId', function(event) {
+				//获得事件参数
+				var id = event.detail.id;
+				var name = event.detail.name;
+				$(".mui-title").text(name);
+				console.log("id= " + id + ", name=" + name);
+				//根据id向服务器请求电影详情
+				getMovieVideoUrl(id);
+			});
+
+			function getMovieVideoUrl(id) {
+				mui.ajax(httpAction.getMovieVideoUrl, {
+					data: {
+						ci: 59,
+						headline: 0,
+						movieIds: id,
+						__vhost: 'api.maoyan.com'
+					},
+					dataType: 'json', //服务器返回json格式数据
+					type: 'get', //HTTP请求类型
+					timeout: 10000, //超时时间设置为10秒；
+					success: function(result) {
+						console.log("result= " + JSON.stringify(result));
+						var movieInfo = result.data.movies[0];
+						var videoUrl = movieInfo.videourl;
+						console.log("videoUrl: " + videoUrl);
+						if(videoUrl && videoUrl!=null){
+							$('video').attr("src",videoUrl);
+							playVideo();
+						}
+					},
+					error: function(xhr, type, errorThrown) {
+						console.log(type);
+					}
+				});
+			}
+			function playVideo () {
+				var myPlayer = videojs('my-video',{ fluid: true });
+				videojs("my-video").ready(function(){
+					var myPlayer = this;
+					myPlayer.play();
+				});
+				myPlayer.on('play', function () {
+					this.play();
+		          	console.log('开始/恢复播放');
+		      	 });
+		       	myPlayer.on('pause', function () {
+		           	console.log('暂停播放');
+		       	});
+		       	myPlayer.on('ended', function () {
+		           console.log('结束播放');
+		       	});
+			}
+		</script>
+	</body>
+
+</html>

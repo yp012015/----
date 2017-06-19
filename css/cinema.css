@@ -1,4 +1,5 @@
-.mui-icon-search{color: white;font-weight: 600;}
+.mui-icon-search,.mui-icon-home{color: white;font-weight: 600;}
+.mui-bar-nav.mui-bar .mui-icon-home{margin-right: 5px;}
 #cityName{color: white;font-family: "microsoft yahei";}
 /*.mui-bar-nav {top: 50px;}
 .mui-content {background: white;margin-top: 44px;}*/
