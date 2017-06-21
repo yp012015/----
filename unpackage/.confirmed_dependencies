@@ -9,7 +9,8 @@
 			"images/bg_welcome_logo_white.png"
 		],
 		"refer": [
-			"html/main.html"
+			"html/main.html",
+			"html/video.html"
 		]
 	},
 	"html/main.html": {
@@ -44,7 +45,13 @@
 	},
 	"html/cinema.html": {
 		"resources": [
-			"images/2.png"
+			"images/2.png",
+			"html/cinema_sub.html",
+			"css/cinema.css",
+			"js/cinema.js"
+		],
+		"refer": [
+			"html/cinema_sub.html"
 		]
 	},
 	"html/movie.html": {
@@ -54,7 +61,55 @@
 			"css/mui.min.css",
 			"fonts/mui.ttf",
 			"js/movie.js",
-			"css/movie.css"
+			"css/movie.css",
+			"html/movie_sub.html"
+		],
+		"refer": [
+			"html/movie_sub.html"
+		]
+	},
+	"html/cinema_sub.html": {
+		"resources": [
+			"images/locate.png",
+			"images/ic_cinema_locate_refresh.png",
+			"js/cinema_sub.js",
+			"css/cinema_sub.css"
+		]
+	},
+	"html/movie_sub.html": {
+		"resources": [
+			"css/movie_sub.css",
+			"js/movie_sub.js",
+			"js/jquery-1.8.3.min.js",
+			"js/mui.min.js",
+			"css/app.css",
+			"css/mui.min.css",
+			"js/httpUrl.js"
+		],
+		"refer": [
+			"html/movie_detail.html"
+		]
+	},
+	"html/video.html": {
+		"resources": [
+			"css/app.css",
+			"fonts/mui.ttf",
+			"js/video.min.js",
+			"fonts/fangzhenghanzhen.TTF",
+			"js/httpUrl.js",
+			"css/video-js.css"
+		]
+	},
+	"html/movie_detail.html": {
+		"resources": [
+			"images/1.png",
+			"fonts/mui.ttf",
+			"css/movie_detail.css",
+			"js/mui.min.js",
+			"js/movie_detail.js",
+			"css/mui.min.css",
+			"js/jquery-1.8.3.min.js",
+			"js/httpUrl.js"
 		]
 	}
 }

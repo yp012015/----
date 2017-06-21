@@ -283,7 +283,9 @@
 					"css/mui.min.css",
 					"js/httpUrl.js"
 				],
-				"refer": [],
+				"refer": [
+					"html/movie_detail.html"
+				],
 				"priority": 0
 			},
 			"html/cinema_sub.html": {
@@ -311,7 +313,22 @@
 					"js/jquery-1.8.3.min.js",
 					"js/httpUrl.js",
 					"js/video.min.js",
-					"css/video-js.css"
+					"css/video-js.css",
+					"fonts/fangzhenghanzhen.TTF"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"html/movie_detail.html": {
+				"resources": [
+					"images/1.png",
+					"fonts/mui.ttf",
+					"css/movie_detail.css",
+					"js/mui.min.js",
+					"js/movie_detail.js",
+					"css/mui.min.css",
+					"js/jquery-1.8.3.min.js",
+					"js/httpUrl.js"
 				],
 				"refer": [],
 				"priority": 0
