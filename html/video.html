@@ -11,14 +11,6 @@
 		<style>
 			.m{ width: 100%; margin: 0; max-height: 250px;min-height: 200px;height: 200px;}
 			#my-video{width: 100%;height: 100%;}
-			@font-face
-			{
-				font-family: myFirstFont;
-				src: url(../fonts/fangzhenghanzhen.TTF);
-			}
-			p{
-				font-family:myFirstFont;
-			}
 		</style>
 	</head>
 
@@ -40,21 +32,25 @@
 					</p>
 				  </video>
 			</div>
-			<p>测试引用的字体ce shi yin yong de zi ti</p>
 		</div>
 		<script src="../js/mui.min.js"></script>
 		<script src="../js/jquery-1.8.3.min.js"></script>
 		<script src="../js/httpUrl.js"></script>
 		<script src="../js/video.min.js"></script>
 		<script type="text/javascript">
-			mui.init();
+			mui.init({
+				beforeback:function () {
+					if(myPlayer){
+						myPlayer.pause();
+					}
+				}
+			});
 			//添加newId自定义事件监听
 			window.addEventListener('movieId', function(event) {
 				//获得事件参数
 				var id = event.detail.id;
 				var name = event.detail.name;
 				$(".mui-title").text(name);
-				console.log("id= " + id + ", name=" + name);
 				//根据id向服务器请求电影详情
 				getMovieVideoUrl(id);
 			});
@@ -71,7 +67,6 @@
 					type: 'get', //HTTP请求类型
 					timeout: 10000, //超时时间设置为10秒；
 					success: function(result) {
-						console.log("result= " + JSON.stringify(result));
 						var movieInfo = result.data.movies[0];
 						var videoUrl = movieInfo.videourl;
 						console.log("videoUrl: " + videoUrl);
@@ -85,11 +80,11 @@
 					}
 				});
 			}
+			var myPlayer;
 			function playVideo () {
-				var myPlayer = videojs('my-video',{ fluid: true });
+				myPlayer = videojs('my-video',{ fluid: true });
 				videojs("my-video").ready(function(){
-					var myPlayer = this;
-					myPlayer.play();
+					this.play();
 				});
 				myPlayer.on('play', function () {
 					this.play();

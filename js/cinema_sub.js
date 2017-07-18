@@ -37,7 +37,7 @@ function getCinemas (method) {
 					if(method == pulldown)//如果是下拉刷新，需要清空之前的列表
 						$(".mui-table-view").empty();
 					mui.each(cinemas,function (index,element) {
-						console.log("index = " + index + ", element=" + JSON.stringify(element));
+//						console.log("index = " + index + ", element=" + JSON.stringify(element));
 						appendCinemaList(element);
 					})
 				}
@@ -66,9 +66,38 @@ function appendCinemaList (cinemas) {
 		if(cinemaName.length > 13){
 			cinemaName = cinemaName.substr(0,10)+"…";
 		}
-		if(cinemaAddr.length > 25){
-			cinemaAddr = cinemaAddr.substr(0,23)+"…";
+		if(cinemaAddr.length > 20){
+			cinemaAddr = cinemaAddr.substr(0,17)+"…";
 		}
+		//判断是否IMAX厅
+		var imaxStr = "";
+		if(cinemaInfo.imax == 1){
+			imaxStr = '<button type="button" class="mui-btn mui-btn-success mui-btn-outlined imax">IMAX厅</button>'
+		}else{
+			imaxStr = '<!--<button type="button" class="mui-btn mui-btn-success mui-btn-outlined imax">IMAX厅</button>-->'
+		}
+		//判断是否可退票
+		var isRefundStr = "";
+		if(cinemaInfo.sell == true){
+			isRefundStr = '<button type="button" class="mui-btn mui-btn-primary refund">退</button>'
+		}else{
+			isRefundStr = '<!--<button type="button" class="mui-btn mui-btn-success mui-btn-outlined seat">IMAX厅</button>-->'
+		}
+		//判断是否可改签
+		var isChangesStr = "";
+		if(cinemaInfo.deal == 0){
+			isChangesStr = '<button type="button" class="mui-btn mui-btn-primary change">改签</button>'
+		}else{
+			isChangesStr = '<!--<button type="button" class="mui-btn mui-btn-primary change">改签</button>-->'
+		}
+		//判断是否有折扣
+		var isPreferential = "";
+		if(cinemaInfo.preferential == 0){
+			isPreferentialStr = '<button type="button" class="mui-btn mui-btn-warning discount">折扣卡</button>'
+		}else{
+			isPreferentialStr = '<!--<button type="button" class="mui-btn mui-btn-warning discount">折扣卡</button>-->'
+		}
+		
 		var content = '<li class="mui-table-view-cell mui-media">'+
 			            '<a href="javascript:;">'+
 			                '<div class="mui-media-body">'+ cinemaName +
@@ -77,9 +106,10 @@ function appendCinemaList (cinemas) {
 							'</div>'+
 							'<div>'+
 								'<button type="button" class="mui-btn mui-btn-success mui-btn-outlined seat">座</button>'+
-								'<button type="button" class="mui-btn mui-btn-primary refund">退</button>'+
-								'<button type="button" class="mui-btn mui-btn-primary change">改签</button>'+
-								'<button type="button" class="mui-btn mui-btn-warning discount">折扣卡</button>'+
+								imaxStr +
+								isRefundStr +
+								isChangesStr +
+								isPreferentialStr +
 							'</div>'+
 			            '</a>'+
 			        '</li>';

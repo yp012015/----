@@ -24,3 +24,4 @@ document.querySelector('header').addEventListener('doubletap',function () {
 	}
 	contentWebview.evalJS("mui('#pullrefresh').pullRefresh().scrollTo(0,0,100)");
 });
+

@@ -22,7 +22,8 @@
 			"html/discover.html",
 			"html/movie.html",
 			"fonts/iconfont.css",
-			"fonts/iconfont.woff"
+			"fonts/iconfont.woff",
+			"css/app.css"
 		],
 		"refer": [
 			"html/mine.html",
@@ -48,7 +49,8 @@
 			"images/2.png",
 			"html/cinema_sub.html",
 			"css/cinema.css",
-			"js/cinema.js"
+			"js/cinema.js",
+			"fonts/mui.ttf"
 		],
 		"refer": [
 			"html/cinema_sub.html"
@@ -62,10 +64,13 @@
 			"fonts/mui.ttf",
 			"js/movie.js",
 			"css/movie.css",
-			"html/movie_sub.html"
+			"html/movie_sub.html",
+			"css/app.css",
+			"js/jquery-1.8.3.min.js"
 		],
 		"refer": [
-			"html/movie_sub.html"
+			"html/movie_sub.html",
+			"html/video.html"
 		]
 	},
 	"html/cinema_sub.html": {
@@ -73,7 +78,12 @@
 			"images/locate.png",
 			"images/ic_cinema_locate_refresh.png",
 			"js/cinema_sub.js",
-			"css/cinema_sub.css"
+			"css/cinema_sub.css",
+			"js/jquery-1.8.3.min.js",
+			"js/mui.min.js",
+			"css/app.css",
+			"css/mui.min.css",
+			"js/httpUrl.js"
 		]
 	},
 	"html/movie_sub.html": {
@@ -97,7 +107,10 @@
 			"js/video.min.js",
 			"fonts/fangzhenghanzhen.TTF",
 			"js/httpUrl.js",
-			"css/video-js.css"
+			"css/video-js.css",
+			"js/jquery-1.8.3.min.js",
+			"js/mui.min.js",
+			"css/mui.min.css"
 		]
 	},
 	"html/movie_detail.html": {
@@ -109,6 +122,76 @@
 			"js/movie_detail.js",
 			"css/mui.min.css",
 			"js/jquery-1.8.3.min.js",
+			"js/httpUrl.js",
+			"css/app.css",
+			"images/ic_progress_out.png",
+			"images/play_large.png",
+			"css/feedback.css",
+			"js/mui.zoom.js",
+			"js/mui.previewimage.js"
+		],
+		"refer": [
+			"html/video.html",
+			"html/comment_main.html",
+			"html/comment_more.html",
+			"html/movie_video.html"
+		]
+	},
+	"html/comment_main.html": {
+		"resources": [
+			"css/app.css",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"html/comment_sub.html",
+			"js/mui.min.js",
+			"js/jquery-1.8.3.min.js"
+		],
+		"refer": [
+			"html/comment_sub.html"
+		]
+	},
+	"html/comment_sub.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/app.css",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"js/comment_sub.js",
+			"js/jquery-1.8.3.min.js",
+			"css/feedback.css",
+			"js/mui.zoom.js",
+			"js/mui.view.js",
+			"js/mui.previewimage.js",
+			"images/ic_progress_in.png",
+			"images/ic_progress_out.png"
+		]
+	},
+	"html/comment_more.html": {
+		"resources": [
+			"images/ic_progress_in.png",
+			"js/jquery-1.8.3.min.js",
+			"js/mui.zoom.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"js/mui.previewimage.js",
+			"js/comment_sub.js",
+			"images/ic_progress_out.png",
+			"css/feedback.css",
+			"css/app.css",
+			"js/comment_more.js",
+			"js/httpUrl.js"
+		]
+	},
+	"html/movie_video.html": {
+		"resources": [
+			"css/zy.media.min.css",
+			"js/zy.media.min.js",
+			"js/jquery-1.8.3.min.js",
+			"js/mui.min.js",
+			"css/app.css",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
 			"js/httpUrl.js"
 		]
 	}

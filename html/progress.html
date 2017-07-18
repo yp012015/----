@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>实时进度条</title>
+		<style type="text/css">
+			.loading{height: 50%;width: 100%;left: 0;top: 0;margin: auto;position: fixed;}
+			.loading .pic{
+				height: 100px;width: 100px;top: 0;right: 0;bottom: 0;left: 0;
+				margin: auto;position: absolute;
+				font-size: 30px;line-height: 100px;text-align: center;
+			}
+			.loading .pic span{
+				height: 80px;width: 80px;top: 10px;left: 10px;margin: auto;
+				position: absolute;border-radius: 50%;
+				box-shadow: 0 3px 0 darkgray ;
+				animation: rotate 1s infinite linear;
+				-webkit-animation: rotate 1s infinite linear;
+			}
+			@keyframes rotate{
+				0%{transform: rotate(0deg);}
+				100%{transform: rotate(360deg);}
+			}
+			@-webkit-keyframes rotate{
+				0%{-webkit-transform: rotate(0deg);}
+				100%{-webkit-transform: rotate(360deg);}
+			}
+			
+			.loading2{
+				height: 50%;width: 100%;left: 0;top: 50%;margin: auto;position: fixed;
+			}	
+			.loading2 .pic{
+				background-size: cover;
+				background: url(../images/ic_progress_in.png) no-repeat;
+				background-position: center;
+			}
+			.loading2 .pic img{
+				width: 62px;height: 62px;top: 19px; left: 19px;margin: auto;
+				display: block;position: absolute;
+				animation: rotate 1s infinite linear;
+				-webkit-animation: rotate 1s infinite linear;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="loading">
+			<div class="pic">
+				<span></span>
+				<b>0%</b>
+			</div>
+		</div>
+		<div class="loading loading2" id="maoyan">
+			<div class="pic">
+				<img src="../images/ic_progress_out.png"/>
+			</div>
+		</div>
+		<script src="../js/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript">
+			//采用递归方法来模拟进度加载
+			var progressVal = 0;
+			updateProgressValue();
+			function updateProgressValue () {
+				if(progressVal<=100){
+					$(".loading .pic b").text(progressVal + "%");
+					setTimeout(function () {
+						progressVal++;  
+						updateProgressValue();
+					},100);
+				} else {
+					progressVal = 0;
+					$(".loading").fadeOut();
+				}
+			}
+		</script>
+	</body>
+</html>

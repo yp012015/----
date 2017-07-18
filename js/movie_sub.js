@@ -119,7 +119,7 @@ function pulldownRefresh() {
 function pullupRefresh() {
 	getHotMovies(pullup);
 }
-var detailPage = null;
+
 /**点击电影列表，获取当前列表项的id，并将该id传给电影详情页面，然后打开电影详情页面*/
 mui(".mui-table-view").on('tap', '.mui-table-view-cell', function() {
 	//获取id
@@ -129,28 +129,13 @@ mui(".mui-table-view").on('tap', '.mui-table-view-cell', function() {
 	mui.openWindow({
 		url:"movie_detail.html",
 		id:"movie_detail",
+		waiting:{
+			autoShow:false
+		},
 		extras:{
 			movieId:id,
 			movieName:movieName
-		}
+		},
 	});
 })
-/**点击电影图片，获取当前列表项的id，并将该id传给电影预告片页面，然后打开电影预告片页面*/
-mui(".mui-table-view>.movie-img").on('tap', '.mui-table-view-cell', function() {
-	//获取id
-	var id = $(this).attr("movieId");
-	var movieName = $(this).find(".movieName").text();
-	//获得详情页面
-	if(!detailPage) {
-		detailPage = plus.webview.getWebviewById('video.html');
-	}
-	//触发详情页面的newsId事件
-	mui.fire(detailPage, 'movieId', {
-		id: id,
-		name: movieName
-	});
-	//打开详情页面          
-	mui.openWindow({
-		id: 'video.html'
-	});
-})
+

@@ -1,26 +1,89 @@
-.mui-content{margin-top: 44px;}
-body{background-color: white;}
-.mui-table-view{
-   background: linear-gradient(#1a121b, #a9a7a6); /* 标准的语法 */
+/*去除顶部边距*/
+.mui-content>.mui-table-view:first-child {
+    margin-top: 0px;
 }
+/*标题栏背景色*/
+#header{background-color: rgba(212,62,55,0);}
+/*标题栏字体颜色*/
+.mui-title{color: transparent;}
+.mui-icon-left-nav{color: white;} 
+/*电影信息灰色栏*/
+.movie-info{
+	padding-top: 34px;
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#1a121b), to(#a9a7a6));
+    background: -webkit-linear-gradient(#1a121b, #a9a7a6);
+	background: -moz-linear-gradient(#1a121b, #a9a7a6);
+	background: -o-linear-gradient(#1a121b, #a9a7a6);
+	background: linear-gradient(#1a121b, #a9a7a6); /* 标准的语法 */
+}
+/*取消灰色栏点击变色*/
+.movie-info .mui-table-view-cell.mui-active{background: transparent;}
 .mui-row .pingfen{float: none;}
 /*观众评分/评分人数*/
-.pingfen-name1,.pingfen-name2{font-size: 10px;color: lightgray;}
+.pingfen-name1,.pingfen-name2{font-size: 12px;color: lightgray;}
 .pingfen-val1,.pingfen-val2{color: #fac201;}
 /*评分中间的竖线*/
 .pingfen-line{border-left: gray 1px solid; line-height: 25px; height: 25px;color: transparent;margin-top: 5px;}
 .mui-ellipsis{border-bottom: none;}
-/*电影海报*/
-.mui-table-view .movie-img{
-	line-height: 110px;
-    max-width: 110px;
-    height: 110px;
+/*电影海报父容器*/
+.mui-table-view .movie-img-parent,.movie-img{
+	height: 120px;
+	line-height: 120px;
+	width: 80px;
+    max-width: 120px;
+    position: relative;
 }
+/*播放按钮*/
+#img-play{
+	position: absolute;   
+    top: 50%;   
+    left: 50%;   
+    -webkit-transform: translate(-50%, -50%);   
+    -moz-transform: translate(-50%, -50%);   
+    -ms-transform: translate(-50%, -50%);   
+    -o-transform: translate(-50%, -50%);   
+    transform: translate(-50%, -50%);   
+    z-index: 1;
+    height: 40px;width: 40px;
+}
+#img-play:active{
+	src:url(../images/play_large_pressed.png) ;
+}
+/*电影海报*/
+.movie-img{background-size: cover;float: left;}
 /*去除分割线*/
-.mui-table-view:before, .mui-table-view:after {background-color: transparent}
+.mui-table-view:before, .mui-table-view:after,.mui-table-view-cell:after{background-color: transparent}
 /*电影类型/国家／上映时间*/
-.movie-type,.movie-date,.movie-duration{font-size: 10px;line-height: 13px;color: lightgray;}
+.movie-type,.movie-date,.movie-duration{font-size: 12px;line-height: 16px;color: lightgray;}
 /*电影中文名称*/
-.mui-media-body{font-size: 14px;color: white;}
+.mui-media-body{color: white;line-height: 20px;}
 /*电影英文名称*/
-.mui-ellipsis{font-size: 12px;line-height: 14px; color: white;}
+.mui-ellipsis{font-size: 14px;line-height: 18px; color: white;}
+/*电影介绍*/
+#movie-dra{background-color: white; padding: 10px; color: black;}
+/*导演、领衔演员父容器*/
+.dirAndStar{margin: 15px 0; padding:10px; background-color: white;}
+/*导演名字*/
+#dirName{margin-left: 20px; font-size: 14px;}
+/*领衔演员标题*/
+.starTitle{margin-top: 15px;color: black; font-size: 17px;}
+/*领先演员表单*/
+#movie-star{font-size: 14px;color: black;}
+/*观众评论标题头部*/
+.commentHead,.commentFoot{background-color: white; padding: 5px 0 0 10px;}
+.commentTitle{border-bottom: 1px solid lightgray; margin-bottom: 0; padding-bottom: 10px;}
+/*观众评论内容*/
+.commentStr{color: #8f8f94;font-size: 12px;}
+/*想看/评分人数*/
+#btn-wish,#btn-score{
+	padding: 4px 0; width: 90%;font-size: 15px;
+	margin-left: auto;margin-right: auto;
+}
+/*查看全部评论*/
+.commentTotal{
+	border-top: 1px solid lightgray;padding:10px;margin-bottom: 0;
+	text-align: center;font-weight: bold;color: #d43e37;font-size: 18px;
+}
+
+/*隐藏标题栏和页面内容,等待数据加载完毕之后再显示*/
+#header,.mui-content{display: none;}

@@ -126,7 +126,7 @@
 				"aliasname": "",/*Android应用打包使用密钥库中证书的别名*/
 				"permissions": ["<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>","<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>","<uses-permission android:name=\"android.permission.READ_CONTACTS\"/>","<uses-permission android:name=\"android.permission.VIBRATE\"/>","<uses-permission android:name=\"android.permission.READ_LOGS\"/>","<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>","<uses-feature android:name=\"android.hardware.camera.autofocus\"/>","<uses-permission android:name=\"android.permission.WRITE_CONTACTS\"/>","<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>","<uses-permission android:name=\"com.android.launcher.permission.UNINSTALL_SHORTCUT\"/>","<uses-permission android:name=\"android.permission.CAMERA\"/>","<uses-permission android:name=\"android.permission.GET_ACCOUNTS\"/>","<uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>","<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\"/>","<uses-permission android:name=\"com.android.launcher.permission.INSTALL_SHORTCUT\"/>","<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>","<uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>","<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>","<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>","<uses-permission android:name=\"android.permission.CALL_PHONE\"/>","<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\"/>","<uses-feature android:name=\"android.hardware.camera\"/>","<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\"/>","<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>"]
 			},
-			"orientation": ["portrait-primary", "portrait-secondary"],/*应用支持的方向，portrait-primary：竖屏正方向；portrait-secondary：竖屏反方向；landscape-primary：横屏正方向；landscape-secondary：横屏反方向*/
+			"orientation": ["portrait-primary"],/*应用支持的方向，portrait-primary：竖屏正方向；portrait-secondary：竖屏反方向；landscape-primary：横屏正方向；landscape-secondary：横屏反方向*/
 			"icons": {
 				"ios": {
 					"prerendered": true, /*应用图标是否已经高亮处理，在iOS6及以下设备上有效*/
@@ -216,7 +216,8 @@
 					"html/discover.html",
 					"html/movie.html",
 					"fonts/iconfont.css",
-					"fonts/iconfont.woff"
+					"fonts/iconfont.woff",
+					"css/app.css"
 				],
 				"refer": [
 					"html/mine.html",
@@ -328,6 +329,80 @@
 					"js/movie_detail.js",
 					"css/mui.min.css",
 					"js/jquery-1.8.3.min.js",
+					"js/httpUrl.js",
+					"css/app.css",
+					"images/ic_progress_out.png",
+					"images/play_large.png",
+					"css/feedback.css",
+					"js/mui.zoom.js",
+					"js/mui.previewimage.js"
+				],
+				"refer": [
+					"html/video.html",
+					"html/comment_main.html",
+					"html/comment_more.html",
+					"html/movie_video.html"
+				],
+				"priority": 0
+			},
+			"html/comment_main.html": {
+				"resources": [
+					"css/app.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"html/comment_sub.html",
+					"js/mui.min.js",
+					"js/jquery-1.8.3.min.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"html/comment_sub.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"js/comment_sub.js",
+					"js/jquery-1.8.3.min.js",
+					"css/feedback.css",
+					"js/mui.zoom.js",
+					"js/mui.view.js",
+					"js/mui.previewimage.js",
+					"images/ic_progress_in.png",
+					"images/ic_progress_out.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"html/comment_more.html": {
+				"resources": [
+					"images/ic_progress_in.png",
+					"js/jquery-1.8.3.min.js",
+					"js/mui.zoom.js",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"js/mui.previewimage.js",
+					"js/comment_sub.js",
+					"images/ic_progress_out.png",
+					"css/feedback.css",
+					"css/app.css",
+					"js/comment_more.js",
+					"js/httpUrl.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"html/movie_video.html": {
+				"resources": [
+					"css/zy.media.min.css",
+					"js/zy.media.min.js",
+					"js/jquery-1.8.3.min.js",
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
 					"js/httpUrl.js"
 				],
 				"refer": [],

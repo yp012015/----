@@ -4,4 +4,5 @@ var httpAction = {
 	"cinemaList":httpHeader + "cinemas.json",
 	"getMovieVideoUrl":"http://api.meituan.com/mmdb/movie/list/info.json",
 	"getMovieDetail":httpHeader + "movie/",
+	"getCommentList":httpHeader + "comments.json?movieid=",
 }

@@ -5,3 +5,36 @@ body{font-family: "microsoft yahei";}
 .mui-title{color: white;}
 /*返回箭头*/
 .mui-icon-left-nav{color: white;}
+
+/*进度条样式*/
+.loading{
+	height: 100%;width: 100%;left: 0;top: 0;margin:auto;
+	position: fixed;z-index: 999;
+}
+.loading .pic{
+	width: 50px;height: 50px;position: absolute;
+	top: 0;right: 0;bottom: 0;left: 0;margin: auto;
+}
+.loading .pic i{
+	width: 6px;height: 100%;display: block;float: left;
+	background-color: #d43e37;margin: 0 2px;
+	-webkit-transform: scaleY(0.4);
+	    -ms-transform: scaleY(0.4);
+	        transform: scaleY(0.4);
+	-webkit-animation: load 1.2s infinite;
+	        animation: load 1.2s infinite;
+}
+.loading .pic i:nth-child(2){-webkit-animation-delay: 200ms;animation-delay: 200ms;}
+.loading .pic i:nth-child(3){-webkit-animation-delay: 400ms;animation-delay: 400ms;}
+.loading .pic i:nth-child(4){-webkit-animation-delay: 600ms;animation-delay: 600ms;}
+.loading .pic i:nth-child(5){-webkit-animation-delay: 800ms;animation-delay: 800ms;}
+
+@-webkit-keyframes load{
+	0,40%,100%{-webkit-transform: scaleY(0.4);transform: scaleY(0.4);}
+	20%{-webkit-transform: scaleY(1);transform: scaleY(1);}
+}
+
+@keyframes load{
+	0,40%,100%{-webkit-transform: scaleY(0.4);transform: scaleY(0.4);}
+	20%{-webkit-transform: scaleY(1);transform: scaleY(1);}
+}

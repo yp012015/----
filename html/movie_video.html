@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/app.css" rel="stylesheet" />
+		<link href="../css/zy.media.min.css" rel="stylesheet" />
+		<style type="text/css">
+			#modelView{background-color:#DDDDDD;z-index:0;opacity:0.7;height: 100%;width: 100%;position: relative;}
+			.playvideo{padding-top: auto;z-index: 99;position: relative;}
+			.zy_media{z-index: 999999999}
+			.mui-action-back{position: fixed;z-index: 999;width: 50px;height: 30px;}
+		</style>
+	</head>
+
+	<body>
+		<div class="loading">
+			<div class="pic">
+				<i></i>
+				<i></i>
+				<i></i>
+				<i></i>
+				<i></i>
+			</div>
+		</div>
+		<span class="mui-action-back mui-icon mui-icon-left-nav"></span>
+		<div class="playvideo">
+			<div class="zy_media">
+				<!--<video poster="https://r1.ykimg.com/05420408584A363C6A0A47047DD24931" data-config='{"mediaTitle": "测试视频--视频"}'>-->
+				<video poster="https://r1.ykimg.com/05420408584A363C6A0A47047DD24931">
+					<!--<source src="http://www.w3cschool.cc/try/demo_source/mov_bbb.mp4" type="video/mp4">-->
+					<source type="video/mp4"> 您的浏览器不支持HTML5视频
+				</video>
+			</div>
+			<div id="modelView">&nbsp;</div>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/jquery-1.8.3.min.js"></script>
+		<script src="../js/httpUrl.js"></script>
+		<script src="../js/zy.media.min.js"></script>
+		<script type="text/javascript">
+			mui.init({
+				beforeback:function () {
+				}
+			});
+			var name = "";
+			mui.plusReady(function () {
+				plus.screen.lockOrientation("portrait-primary"); 
+				var self = plus.webview.currentWebview();
+				var id = self.movieId;
+				name = self.movieName;
+				//根据id向服务器请求电影详情
+				getMovieVideoUrl(id);
+			})
+
+			function getMovieVideoUrl(id) {
+				mui.ajax(httpAction.getMovieVideoUrl, {
+					data: {
+						ci: 59,
+						headline: 0,
+						movieIds: id,
+						__vhost: 'api.maoyan.com'
+					},
+					dataType: 'json', //服务器返回json格式数据
+					type: 'get', //HTTP请求类型
+					timeout: 10000, //超时时间设置为10秒；
+					success: function(result) {
+						var movieInfo = result.data.movies[0];
+						var videoUrl = movieInfo.videourl;
+						console.log("videoUrl: " + videoUrl);
+						closeWaiting();
+						$('source').attr("src",videoUrl);
+						setPlayer();
+					},
+					error: function(xhr, type, errorThrown) {
+						console.log(type);
+					}
+				});
+			}
+			function closeWaiting () {
+				$(".loading").fadeOut();
+				$(".playvideo").fadeIn();
+			}
+			/**
+			 * 设置播放器的样式
+			 */
+			function setPlayer () {
+				//document.documentElement.style.overflow='hidden';
+				document.body.style.overflow = 'hidden';
+				zymedia('video', {
+					autoplay: true
+				});
+				var screenheight = window.screen.height / 2;
+				$("#modelView").width(window.screen.width);
+	//			$("#modelView").height(window.screen.height);
+				var videoheight = $(".zy_media").height() / 2;
+	//			var padding_top = screenheight - videoheight;
+				var padding_top = 0;
+	//			$(".playvideo").css({
+	//				"top": padding_top
+	//			});
+				$("#modelView").css({
+					"margin-top": -1 * (padding_top + $(".zy_media").height())
+				});
+//				$('.zy_title').text(name);
+//				$('.zy_title').css("margin-left","30px");
+			}
+		</script>
+	</body>
+
+</html>

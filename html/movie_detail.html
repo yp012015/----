@@ -6,19 +6,32 @@
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/app.css" rel="stylesheet" />
+		<link href="../css/feedback.css" rel="stylesheet" />
 		<link href="../css/movie_detail.css" rel="stylesheet" />
-		<script src="../js/mui.min.js"></script>
 	</head>
 
 	<body>
+		<div class="loading">
+			<div class="pic">
+				<i></i>
+				<i></i>
+				<i></i>
+				<i></i>
+				<i></i>
+			</div>
+		</div>
 		<header id="header" class="mui-bar mui-bar-transparent">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 			<h1 class="mui-title">导航栏</h1>
 		</header>
 		<div class="mui-content">
-			<ul class="mui-table-view">
-			    <li class="mui-table-view-cell mui-media">
-		            <img class="mui-media-object mui-pull-left movie-img" src="../images/1.png">
+			<ul class="mui-table-view movie-info">
+			    <li class="mui-table-view-cell mui-media" disabled="disabled">
+			    	<div class="mui-media-object mui-pull-left movie-img-parent">
+			            <img id="img-play" src="../images/play_large.png"/>
+			            <img class="movie-img" src="../images/1.png">
+			    	</div>
 		            <div class="mui-media-body">
 		                <span id="movieName">幸福</span>
 		                <p class="mui-ellipsis">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
@@ -44,11 +57,50 @@
 		                </div>
 		            </div>
 			    </li>
+			    <div class="mui-row">
+			        <div class="mui-col-sm-6 mui-col-xs-6">
+			        	<button id="btn-wish" type="button" class="mui-btn mui-btn-grey mui-btn-block">想看</button>
+			        </div>
+			        <div class="mui-col-sm-6 mui-col-xs-6 btn-gray">
+			        	<button id="btn-score" type="button" class="mui-btn mui-btn-grey mui-btn-block">评分</button>
+			        </div>
+			    </div>
+			    
 			</ul>
 			<p id="movie-dra">
 				人类和变形金刚开战，擎天柱失踪，拯救未来的关键就埋藏在历史的秘密之中，那是地球上变形金刚的历史。拯救世界的责任落在一支非同寻常的队伍身上：凯德·伊格尔（马克·沃尔伯格 饰）、大黄蜂、一位英国爵士（安东尼·霍普金斯 饰）还有一位牛津大学教授（劳拉·哈德克 饰）。每个人一生中都会遇到这样一个时刻，它召唤着我们去改变世界。一直被追捕的人将成为英雄，英雄会变成反派。我们和他们的世界，只能存活一个。
 			</p>
-			<p id="movie-star"></p>
+			<div class="dirAndStar">
+				<div class="dir">
+					导演<span id="dirName">冯小刚</span>
+				</div>
+				<p class="starTitle">领衔演员</p>
+				<p id="movie-star">冯绍峰 李易峰 赵丽颖 高圆圆</p>
+			</div>
+			<div class="commentHead">
+				<p class="commentTitle">观众评论</p>
+			</div>
+			<ul id="commentList" class="mui-table-view">
+			    <!--<li class="mui-table-view-cell mui-media">
+			        <a href="javascript:;">
+			            <img class="mui-media-object mui-pull-left commentAvatar" src="http://placehold.it/40x30">
+			            <div class="mui-media-body commentData">
+			                <p class="commentUserName">Peter</p>
+			                <div class="icons mui-inline">
+			                	<i data-index="1" class="mui-icon mui-icon-star"></i>
+			                	<i data-index="2" class="mui-icon mui-icon-star"></i>
+			                	<i data-index="3" class="mui-icon mui-icon-star"></i>
+			                	<i data-index="4" class="mui-icon mui-icon-star"></i>
+			                	<i data-index="5" class="mui-icon mui-icon-star"></i>
+			                </div>
+			                <p class="mui-ellipsis commentStr">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+			            </div>
+			        </a>
+			    </li>-->
+			</ul>
+			<div id="div-more-comment" class="commentFoot">
+				<p class="commentTotal">查看全部1条评论</p>
+			</div>
 		</div>
 		<script src="../js/mui.min.js"></script>
 		<script src="../js/jquery-1.8.3.min.js"></script>
