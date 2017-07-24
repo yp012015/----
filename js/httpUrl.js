@@ -5,4 +5,5 @@ var httpAction = {
 	"getMovieVideoUrl":"http://api.meituan.com/mmdb/movie/list/info.json",
 	"getMovieDetail":httpHeader + "movie/",
 	"getCommentList":httpHeader + "comments.json?movieid=",
+	"getCinemaShowTime":httpHeader + "showtime/wrap.json",
 }

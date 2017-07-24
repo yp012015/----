@@ -301,7 +301,9 @@
 					"images/locate.png",
 					"images/ic_cinema_locate_refresh.png"
 				],
-				"refer": [],
+				"refer": [
+					"html/cinema_detail.html"
+				],
 				"priority": 0
 			},
 			"html/video.html": {
@@ -403,7 +405,23 @@
 					"css/app.css",
 					"fonts/mui.ttf",
 					"css/mui.min.css",
-					"js/httpUrl.js"
+					"js/httpUrl.js",
+					"css/movie_video.css",
+					"css/feedback.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"html/cinema_detail.html": {
+				"resources": [
+					"css/cinema_detail.css",
+					"js/cinema_detail.js",
+					"fonts/mui.ttf",
+					"js/mui.min.js",
+					"css/app.css",
+					"css/mui.min.css",
+					"js/httpUrl.js",
+					"js/jquery-1.8.3.min.js"
 				],
 				"refer": [],
 				"priority": 0

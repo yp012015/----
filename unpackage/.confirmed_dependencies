@@ -50,7 +50,10 @@
 			"html/cinema_sub.html",
 			"css/cinema.css",
 			"js/cinema.js",
-			"fonts/mui.ttf"
+			"fonts/mui.ttf",
+			"css/app.css",
+			"js/mui.min.js",
+			"css/mui.min.css"
 		],
 		"refer": [
 			"html/cinema_sub.html"
@@ -84,6 +87,9 @@
 			"css/app.css",
 			"css/mui.min.css",
 			"js/httpUrl.js"
+		],
+		"refer": [
+			"html/cinema_detail.html"
 		]
 	},
 	"html/movie_sub.html": {
@@ -192,7 +198,21 @@
 			"css/app.css",
 			"fonts/mui.ttf",
 			"css/mui.min.css",
-			"js/httpUrl.js"
+			"js/httpUrl.js",
+			"css/movie_video.css",
+			"css/feedback.css"
+		]
+	},
+	"html/cinema_detail.html": {
+		"resources": [
+			"css/cinema_detail.css",
+			"js/cinema_detail.js",
+			"fonts/mui.ttf",
+			"js/mui.min.js",
+			"css/app.css",
+			"css/mui.min.css",
+			"js/httpUrl.js",
+			"js/jquery-1.8.3.min.js"
 		]
 	}
 }

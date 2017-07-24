@@ -9,7 +9,8 @@ body{font-family: "microsoft yahei";}
 /*进度条样式*/
 .loading{
 	height: 100%;width: 100%;left: 0;top: 0;margin:auto;
-	position: fixed;z-index: 999;
+	position: fixed;z-index: 999999;
+	background-color: white;
 }
 .loading .pic{
 	width: 50px;height: 50px;position: absolute;

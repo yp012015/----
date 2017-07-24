@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/app.css" rel="stylesheet" />
+		<link href="../css/cinema_detail.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<div class="loading">
+			<div class="pic">
+				<i></i>
+				<i></i>
+				<i></i>
+				<i></i>
+				<i></i>
+			</div>
+		</div>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">标题</h1>
+		</header>
+		<div class="mui-content">
+			<div class="showtime-cinema-info">
+				<div class="stci-info">
+					<div class="cinema-name">太平洋电影城(紫荆店)</div>
+					<p>武侯区二环路南四段紫荆北路2号（银都小学对面）</p>
+				</div>
+				<div class="stci-tel">
+					<a href="#">
+						<span class="mui-icon mui-icon-location">
+							<span class="mapword">地图</span>
+						</span>
+					</a>
+				</div>
+			</div>
+			<div id="slider" class="mui-slider">
+				<div class="mui-slider-group mui-slider-loop">
+					<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#">
+							<img src="http://p0.meituan.net/165.220/movie/408f53c86382da0b959941904c01c32b291291.jpg">
+							<p class="mui-slider-title">父子共生死，联手打BOSS</p>
+						</a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="http://p0.meituan.net/165.220/movie/b0fc6fd58f1592dd31298149734ab2d8382151.jpg">
+							<p class="mui-slider-title">爱情陷阴谋，刀剑欲封侯</p>
+						</a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="http://p0.meituan.net/165.220/movie/3534d263e6bc6f85412a147c4aaf4e46667953.jpg">
+							<p class="mui-slider-title">悟空二郎神，兄弟俩情深</p>
+						</a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="http://p1.meituan.net/165.220/movie/b2589235242332cf54704ca3cec394f7286747.jpg">
+							<p class="mui-slider-title">奇葩恋校草，联合大逆袭</p>
+						</a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="http://p0.meituan.net/165.220/movie/408f53c86382da0b959941904c01c32b291291.jpg">
+							<p class="mui-slider-title">父子共生死，联手打BOSS</p>
+						</a>
+					</div>
+					<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#">
+							<img src="http://p0.meituan.net/165.220/movie/b0fc6fd58f1592dd31298149734ab2d8382151.jpg">
+							<p class="mui-slider-title">爱情陷阴谋，刀剑欲封侯</p>
+						</a>
+					</div>
+				</div>
+				<div class="mui-slider-indicator mui-text-right">
+					<div class="mui-indicator mui-active"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+				</div>
+			</div>
+			<div id="slider" class="mui-slider">
+				<div id="sliderSegmentedControl" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+					<!--<a class="mui-control-item" href="#item1mobile">
+						待办公文
+					</a>
+					<a class="mui-control-item" href="#item2mobile">
+						已办公文
+					</a>
+					<a class="mui-control-item" href="#item3mobile">
+						全部公文
+					</a>-->
+				</div>
+				<div id="sliderProgressBar" class="mui-slider-progress-bar"></div>
+				<div class="mui-slider-group2">
+					<!--<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+						<div id="scroll1" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view">
+									<li class="mui-table-view-cell">
+										<div class="mui-row">
+										    <div class="mui-col-sm-3  mui-col-xs-3">
+										    	<p class="startTime">14:40</p>
+										    	<em>16:40结束</em>
+										    </div>
+										    <div class="mui-col-sm-4  mui-col-xs-4">
+										    	<p class="stl-ver">国语 2D</p>
+										    	<p class="two-line">全景声</p>
+										    </div>
+										    <div class="mui-col-sm-2  mui-col-xs-2">
+										    	<span class="unit">
+										    		<span class="stonefont">67</span>元
+										    	</span>
+										    </div>
+										    <div class="mui-col-sm-3  mui-col-xs-3">
+										    	<button type="button" class="mui-btn mui-btn-red mui-btn-outlined">选座购票</button>
+										    </div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div id="item2mobile" class="mui-slider-item mui-control-content">
+						<div id="scroll2" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<div class="mui-loading">
+									<div class="mui-spinner">
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<div id="item3mobile" class="mui-slider-item mui-control-content">
+						<div id="scroll3" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<div class="mui-loading">
+									<div class="mui-spinner">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>-->
+				</div>
+			</div>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/httpUrl.js"></script>
+		<script src="../js/jquery-1.8.3.min.js"></script>
+		<script src="../js/cinema_detail.js"></script>
+	</body>
+
+</html>

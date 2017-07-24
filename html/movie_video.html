@@ -7,12 +7,14 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../css/mui.min.css" rel="stylesheet" />
 		<link href="../css/app.css" rel="stylesheet" />
+		<link href="../css/feedback.css" rel="stylesheet" />
+		<link href="../css/movie_video.css" rel="stylesheet" />
 		<link href="../css/zy.media.min.css" rel="stylesheet" />
 		<style type="text/css">
 			#modelView{background-color:#DDDDDD;z-index:0;opacity:0.7;height: 100%;width: 100%;position: relative;}
 			.playvideo{padding-top: auto;z-index: 99;position: relative;}
 			.zy_media{z-index: 999999999}
-			.mui-action-back{position: fixed;z-index: 999;width: 50px;height: 30px;}
+			.mui-bar .mui-action-back{position: fixed;z-index: 999;width: 50px;height: 30px;}
 		</style>
 	</head>
 
@@ -26,16 +28,37 @@
 				<i></i>
 			</div>
 		</div>
-		<span class="mui-action-back mui-icon mui-icon-left-nav"></span>
-		<div class="playvideo">
-			<div class="zy_media">
-				<!--<video poster="https://r1.ykimg.com/05420408584A363C6A0A47047DD24931" data-config='{"mediaTitle": "测试视频--视频"}'>-->
-				<video poster="https://r1.ykimg.com/05420408584A363C6A0A47047DD24931">
-					<!--<source src="http://www.w3cschool.cc/try/demo_source/mov_bbb.mp4" type="video/mp4">-->
-					<source type="video/mp4"> 您的浏览器不支持HTML5视频
-				</video>
+		<header class="mui-bar mui-bar-nav" style="display: none;">
+		    <span class="mui-action-back mui-icon mui-icon-left-nav"></span>
+		    <div class="playvideo">
+		    	<div class="zy_media">
+		    		<!--<video poster="https://r1.ykimg.com/05420408584A363C6A0A47047DD24931" data-config='{"mediaTitle": "测试视频--视频"}'>-->
+		    		<video>
+		    			<!--<source src="http://www.w3cschool.cc/try/demo_source/mov_bbb.mp4" type="video/mp4">-->
+		    			<source type="video/mp4"> 您的浏览器不支持HTML5视频
+		    		</video>
+		    	</div>
+		    	<div id="modelView">&nbsp;</div>
+		    </div>
+		</header>
+		<div id="movieInfo" style="position: relative;display: none;">
+			<ul class="mui-table-view mui-table-view-chevron">
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;"><img class="mui-media-object mui-pull-left movie-img" >
+						<div class="mui-media-body">
+							<span id="movieName"></span>
+							<span class="score">8.9分</span>
+							<p class="movie-second showInfo">2017-7-18大陆上映
+								<button type="button" class="mui-btn mui-btn-red mui-btn-outlined">购票</button>
+							</p>
+						</div>
+					</a>
+				</li>
+			</ul>
+			<div class="commentHead">
+				<p class="commentTitle">观众评论</p>
 			</div>
-			<div id="modelView">&nbsp;</div>
+			<ul id="commentList" class="mui-table-view"></ul>
 		</div>
 		<script src="../js/mui.min.js"></script>
 		<script src="../js/jquery-1.8.3.min.js"></script>
@@ -52,10 +75,16 @@
 				var self = plus.webview.currentWebview();
 				var id = self.movieId;
 				name = self.movieName;
+				$("#movieName").text(name);
+				$(".score").text(self.sc+"分");
+				$(".shwoInfo").text(self.rt);
+				$(".movie-img").attr("src",self.img);
+				$("video").attr("poster",self.img);
+				//显示观众热评
+				setCommentValue(self.hcmts);
 				//根据id向服务器请求电影详情
 				getMovieVideoUrl(id);
 			})
-
 			function getMovieVideoUrl(id) {
 				mui.ajax(httpAction.getMovieVideoUrl, {
 					data: {
@@ -70,8 +99,6 @@
 					success: function(result) {
 						var movieInfo = result.data.movies[0];
 						var videoUrl = movieInfo.videourl;
-						console.log("videoUrl: " + videoUrl);
-						closeWaiting();
 						$('source').attr("src",videoUrl);
 						setPlayer();
 					},
@@ -82,12 +109,14 @@
 			}
 			function closeWaiting () {
 				$(".loading").fadeOut();
-				$(".playvideo").fadeIn();
+				$("header").fadeIn();
+				$("#movieInfo").fadeIn();
 			}
 			/**
 			 * 设置播放器的样式
 			 */
 			function setPlayer () {
+				closeWaiting();
 				//document.documentElement.style.overflow='hidden';
 				document.body.style.overflow = 'hidden';
 				zymedia('video', {
@@ -107,7 +136,49 @@
 				});
 //				$('.zy_title').text(name);
 //				$('.zy_title').css("margin-left","30px");
+				$("#movieInfo").css({
+					"top":$(".zy_media").height()
+				});
 			}
+			/**
+			 * 加载评论列表到页面
+			 * @param {Object} commentData 评论内容
+			 */
+			function setCommentValue (commentData) {
+				mui.each(commentData,function (index,element) {
+			//		console.log("index= " + index + "\nelement= " + JSON.stringify(element));
+					if(index>5)return;
+					var score = element.score;//评论分数
+					var domStr = '<li class="mui-table-view-cell mui-media">' + 
+						        '<a>'+
+						            '<img class="mui-media-object mui-pull-left commentAvatar" src="'+ element.avatarurl +'">' +
+						            '<div class="mui-media-body commentData">'+
+						                '<p class="commentUserName">'+ element.nickName +'</p>'+
+						                setScore(score)+
+						                '<p class="mui-ellipsis commentStr">'+ element.content +'</p>'+
+						            '</div>'+
+						        '</a>'+
+						    '</li>';
+					$("#commentList").append(domStr);
+					setScore(score);
+				})
+			}
+			
+			//电影评论分数
+			function setScore (score) {
+				var domScoreStr = '<div class="icons mui-inline">';
+				for(var i=1; i<=5;i++){
+					//如果当前星星的位置小于或等于用户评分，将该星星填充
+					if(i<=Math.floor(score)){
+						domScoreStr += '<i class="mui-icon mui-icon-star-filled"></i>';
+					}else{//否者星星为空心
+						domScoreStr += '<i class="mui-icon mui-icon-star"></i>';
+					}
+				}
+				domScoreStr += '</div>';
+				return domScoreStr;
+			}
+
 		</script>
 	</body>
 

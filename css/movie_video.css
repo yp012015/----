@@ -1,0 +1,29 @@
+/*电影照片*/
+.mui-table-view .movie-img{height: 60px; line-height:1; max-width: 45px;}
+/*电影名称*/
+.mui-table-view-cell .mui-media-body{color: black; margin-top: 10px;position: relative;}
+.showInfo{margin-top: 8px;}
+.scm{margin-top: 10px;}
+/*item边距*/
+.mui-table-view .mui-media {padding-top: 10px; padding-left: 10px;}
+/*item分割线*/
+.mui-table-view-cell:after {left: 0;}
+/*item右边距*/
+.mui-table-view-chevron .mui-table-view-cell {padding-right: 35px;}
+/*电影评分*/
+.score{color: #FF9A01;position: absolute;right: 0;}
+/*购票按钮*/
+.mui-media-body .mui-btn{position: absolute;right: 0;bottom: 0;padding: 3px 8px;}
+
+
+/*观众评论标题头部*/
+.commentHead{background-color: white; padding: 5px 0 0 5px;margin-top: 10px;}
+.commentTitle{
+	border-bottom: 1px solid #d43e37;color: #f46359;font-weight: bold;
+	margin:0 10px; padding: 3px 10px 5px;
+}
+/*观众评论内容*/
+.commentStr{color: #8f8f94;font-size: 12px;}
+
+/*播放器放在header里面,使其固定在页面顶部*/
+.mui-bar{padding: 0;}

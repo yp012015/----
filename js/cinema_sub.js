@@ -53,7 +53,7 @@ function getCinemas (method) {
 					mui('#pullrefresh').pullRefresh().endPullupToRefresh(!hasNext); //参数为true代表没有更多数据了。
 				//异常处理；
 				console.log(type);
-//				mui.alert("获取电影列表失败，服务器接口异常！");
+//				mui.alert("获取影院列表失败，服务器接口异常！");
 			}
 		}
 	);
@@ -97,8 +97,7 @@ function appendCinemaList (cinemas) {
 		}else{
 			isPreferentialStr = '<!--<button type="button" class="mui-btn mui-btn-warning discount">折扣卡</button>-->'
 		}
-		
-		var content = '<li class="mui-table-view-cell mui-media">'+
+		var content =  '<li class="mui-table-view-cell mui-media" cinemaId="'+cinemaInfo.id+'">'+
 			            '<a href="javascript:;">'+
 			                '<div class="mui-media-body">'+ cinemaName +
 								'<span class="price">' + cinemaInfo.sellPrice + '</span><span class="rmb">元起</span class="rmb">'+
@@ -128,3 +127,19 @@ function pulldownRefresh() {
 function pullupRefresh() {
 	getCinemas(pullup);
 }
+/**点击影院列表，获取当前列表项的id，并将该id传给影院详情页面，然后打开影院详情页面*/
+mui(".mui-table-view").on('tap', '.mui-table-view-cell', function() {
+	//获取id
+	var cinemaId = $(this).attr("cinemaId");
+	//获得详情页面
+	mui.openWindow({
+		url:"cinema_detail.html",
+		id:"cinema_detail",
+		waiting:{
+			autoShow:false
+		},
+		extras:{
+			cinemaId:cinemaId
+		},
+	});
+})

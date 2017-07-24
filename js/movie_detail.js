@@ -33,7 +33,12 @@ $(".mui-bar-transparent").on("alpha", function(evt) {
 function changeTitleColor(alpha) {
 	$(".mui-title").css("color","rgba(255,255,255,"+ alpha +")");
 }
-var name,id;
+var name="",//电影名称
+	id="",//电影id
+	img="",//电影照片
+	hcmts="",//电影热门评论
+	rt="",//上映时间
+	sc="";//电影得分
 mui.plusReady(function () {
 	var self = plus.webview.currentWebview();
 	name = self.movieName;
@@ -64,6 +69,7 @@ function getMovieDetail(id) {
 			$(".commentTotal").text("查看全部" + commentResponseModel.total + "条评论");
 			setMovieValue(movieDetail);
 			var commentData = commentResponseModel.cmts;
+			hcmts = commentResponseModel.hcmts;
 			setCommentValue(commentData);
 			setTransparentHeight();
 		},
@@ -84,22 +90,26 @@ function setMovieValue (movieDetail) {
 		return;
 	}
 //	console.log("movieDetail= " + JSON.stringify(movieDetail))
+	rt = movieDetail.rt;//上映时间
+	sc = movieDetail.sc;//电影得分
+	img = movieDetail.img;
 	$("#movieName").text(movieDetail.nm);
 	$(".mui-ellipsis").text(movieDetail.scm);
 	$("#movie-dra").html(movieDetail.dra);
 	$(".movie-type").text(movieDetail.cat);
 	$(".movie-duration").text(movieDetail.src + "/" + movieDetail.dur + "分钟");
-	$(".movie-date").text(movieDetail.rt);
+	$(".movie-date").text(rt);
 	//电影海报
-	$(".movie-img").attr("src",movieDetail.img);
+	$(".movie-img").attr("src",img);
 	//评分
-	$(".pingfen-val1").text(movieDetail.sc);
+	$(".pingfen-val1").text(sc);
 	//评分人数
 	$(".pingfen-val2").text(movieDetail.wish);
 	//导演
 	$("#dirName").text(movieDetail.dir);
 	//演员
 	$("#movie-star").text(movieDetail.star);
+	
 	closeWaiting();
 	setBtnPlayListener();
 }
@@ -110,6 +120,7 @@ function setMovieValue (movieDetail) {
 function setCommentValue (commentData) {
 	mui.each(commentData,function (index,element) {
 //		console.log("index= " + index + "\nelement= " + JSON.stringify(element));
+		if(index>5)return;
 		var score = element.score;//评论分数
 		var domStr = '<li class="mui-table-view-cell mui-media">' + 
 			        '<a>'+
@@ -152,7 +163,11 @@ function setBtnPlayListener () {
 			id:"movie_video.html",
 			extras:{
 				movieId:id,
-				movieName:name
+				movieName:name,
+				img:img,
+				hcmts:hcmts,
+				rt:rt,
+				sc:sc
 			},
 			waiting:{
 				autoShow:false
