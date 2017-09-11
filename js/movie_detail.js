@@ -211,6 +211,7 @@ function closeWaiting () {
 	$(".loading").fadeOut();
 	$("#header").fadeIn();
 	$(".mui-content").fadeIn();
+	$('.mui-content').css('padding-top',0);
 }
 
 //检测页面加载进度

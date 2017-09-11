@@ -12,7 +12,7 @@ mui.init({
 		url:'movie_sub.html',
 		id:'movie_sub.html',
 		styles:{
-			top: '45px',
+			top: '65px',
 			bottom: '0px',
 		}
 	}]

@@ -36,13 +36,21 @@
 		"resources": [
 			"js/mui.min.js",
 			"images/4.png",
-			"css/mui.min.css"
-		]
+			"css/mui.min.css",
+			"js/jquery-1.8.3.min.js",
+			"js/immersed.js"
+		],
+		"refer": []
 	},
 	"html/discover.html": {
 		"resources": [
-			"images/3.png"
-		]
+			"images/3.png",
+			"js/jquery-1.8.3.min.js",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"js/immersed.js"
+		],
+		"refer": []
 	},
 	"html/cinema.html": {
 		"resources": [
@@ -53,7 +61,9 @@
 			"fonts/mui.ttf",
 			"css/app.css",
 			"js/mui.min.js",
-			"css/mui.min.css"
+			"css/mui.min.css",
+			"js/immersed.js",
+			"js/jquery-1.8.3.min.js"
 		],
 		"refer": [
 			"html/cinema_sub.html"
@@ -69,7 +79,8 @@
 			"css/movie.css",
 			"html/movie_sub.html",
 			"css/app.css",
-			"js/jquery-1.8.3.min.js"
+			"js/jquery-1.8.3.min.js",
+			"js/immersed.js"
 		],
 		"refer": [
 			"html/movie_sub.html",
@@ -117,7 +128,8 @@
 			"js/jquery-1.8.3.min.js",
 			"js/mui.min.js",
 			"css/mui.min.css"
-		]
+		],
+		"refer": []
 	},
 	"html/movie_detail.html": {
 		"resources": [
@@ -134,7 +146,8 @@
 			"images/play_large.png",
 			"css/feedback.css",
 			"js/mui.zoom.js",
-			"js/mui.previewimage.js"
+			"js/mui.previewimage.js",
+			"js/immersed.js"
 		],
 		"refer": [
 			"html/video.html",
@@ -170,7 +183,8 @@
 			"js/mui.previewimage.js",
 			"images/ic_progress_in.png",
 			"images/ic_progress_out.png"
-		]
+		],
+		"refer": []
 	},
 	"html/comment_more.html": {
 		"resources": [
@@ -186,8 +200,10 @@
 			"css/feedback.css",
 			"css/app.css",
 			"js/comment_more.js",
-			"js/httpUrl.js"
-		]
+			"js/httpUrl.js",
+			"js/immersed.js"
+		],
+		"refer": []
 	},
 	"html/movie_video.html": {
 		"resources": [
@@ -200,8 +216,10 @@
 			"css/mui.min.css",
 			"js/httpUrl.js",
 			"css/movie_video.css",
-			"css/feedback.css"
-		]
+			"css/feedback.css",
+			"js/immersed.js"
+		],
+		"refer": []
 	},
 	"html/cinema_detail.html": {
 		"resources": [
@@ -212,7 +230,9 @@
 			"css/app.css",
 			"css/mui.min.css",
 			"js/httpUrl.js",
-			"js/jquery-1.8.3.min.js"
-		]
+			"js/jquery-1.8.3.min.js",
+			"js/immersed.js"
+		],
+		"refer": []
 	}
 }
